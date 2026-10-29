@@ -1,0 +1,359 @@
+
+:root {
+  --ink: #765185;
+  --paper: #ffe4d1;
+  --pink: #ffc0d7;
+  --lilac: #d7c2fa;
+  --peach: #ffd8aa;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+
+  display: grid;
+  place-items: center;
+
+  padding: 35px 16px;
+
+  color: var(--ink);
+
+  font-family:
+    "Trebuchet MS",
+    "Arial Rounded MT Bold",
+    system-ui,
+    sans-serif;
+
+  background: #80b6e8;
+}
+
+/* Нарисованный мир */
+.illustration {
+  position: fixed;
+  inset: 0;
+
+  background:
+    url("background.webp")
+    center center / cover no-repeat;
+
+  z-index: -1;
+}
+
+/* Центральная бумажная открытка */
+.paper {
+  position: relative;
+  isolation: isolate;
+
+  width: min(100%, 650px);
+  min-height: 525px;
+
+  padding: clamp(24px, 5vw, 48px);
+  text-align: center;
+
+  border: 8px solid #fff0dc;
+
+  border-radius:
+    49% 45% 46% 48%
+    / 13% 13% 14% 14%;
+
+  background: var(--paper);
+
+  box-shadow:
+    0 8px 0 #e4acaa,
+    0 21px 35px #70547650,
+    inset 0 0 0 3px #f9cbbb;
+}
+
+/* Лёгкая текстура бумаги */
+.paper::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+
+  inset: 10px;
+  border-radius: inherit;
+  opacity: 0.2;
+
+  background: repeating-linear-gradient(
+    11deg,
+    transparent 0 12px,
+    #d68ba5 13px 14px,
+    transparent 15px 27px
+  );
+
+  pointer-events: none;
+}
+
+.paper-top,
+.paper-bottom {
+  color: #db80a9;
+  letter-spacing: 16px;
+  font-size: 21px;
+}
+
+.paper-bottom {
+  margin-top: 18px;
+}
+
+.screen {
+  animation: appear 0.28s ease both;
+}
+
+.hidden {
+  display: none;
+}
+
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 2.5px;
+  font-weight: 800;
+
+  color: #b56b91;
+  margin: 21px 0;
+}
+
+/* Объёмные заголовки */
+h1,
+h2 {
+  color: #ae6298;
+
+  font-family:
+    "Trebuchet MS",
+    system-ui,
+    sans-serif;
+
+  font-weight: 1000;
+  line-height: 1.14;
+
+  text-shadow:
+    1px 1px #fff5dc,
+    2px 3px #eeb1c5,
+    4px 5px 0 #e1a4bd;
+
+  margin: 0 auto 20px;
+  max-width: 540px;
+}
+
+h1 {
+  font-size: clamp(29px, 5.6vw, 46px);
+}
+
+h2 {
+  font-size: clamp(27px, 5vw, 38px);
+}
+
+.intro {
+  white-space: pre-line;
+
+  font-size: clamp(16px, 2vw, 19px);
+  line-height: 1.55;
+
+  max-width: 510px;
+  margin: 0 auto 24px;
+}
+
+/* Кнопки */
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.candy {
+  cursor: pointer;
+
+  border: 3px dashed #b879a2;
+  outline: 4px solid #fff5df;
+
+  border-radius:
+    42% 43% 38% 46%
+    / 39% 45% 39% 44%;
+
+  color: #805178;
+
+  padding: 14px 21px;
+  min-height: 57px;
+
+  font:
+    800 17px
+    "Trebuchet MS",
+    system-ui,
+    sans-serif;
+
+  box-shadow:
+    0 7px 0 #d9a5b0,
+    0 12px 14px #9d6d8a30;
+
+  transition:
+    transform 0.15s,
+    box-shadow 0.15s;
+}
+
+.candy:hover:not(:disabled) {
+  transform: translateY(-3px) rotate(-1deg);
+}
+
+.candy:active:not(:disabled) {
+  transform: translateY(4px);
+
+  box-shadow:
+    0 2px 0 #d9a5b0;
+}
+
+.candy:focus-visible,
+.plain:focus-visible,
+.option:focus-visible {
+  outline: 3px solid #805178;
+  outline-offset: 5px;
+}
+
+.candy:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.pink {
+  background: var(--pink);
+}
+
+.lilac {
+  background: var(--lilac);
+}
+
+.peach {
+  background: var(--peach);
+}
+
+/* Список вариантов свидания */
+.option-list {
+  display: grid;
+  gap: 12px;
+
+  margin: 22px auto;
+  max-width: 530px;
+}
+
+.option {
+  padding: 14px 17px;
+
+  text-align: left;
+  cursor: pointer;
+
+  color: var(--ink);
+  font: inherit;
+
+  border: 3px solid #f9c1ce;
+  background: #fff4e7e8;
+
+  border-radius:
+    18px 26px 18px 24px;
+
+  box-shadow: 0 4px 0 #eac1c2;
+}
+
+.option:nth-child(even) {
+  background: #eee2ffeb;
+  transform: rotate(-0.35deg);
+}
+
+.option strong {
+  display: block;
+
+  font-size: 17px;
+  margin-bottom: 4px;
+}
+
+.option span {
+  display: block;
+
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.option.selected {
+  border-color: #ad629e;
+  background: #ffcfdf;
+}
+
+/* Простые текстовые кнопки */
+.plain {
+  display: block;
+  margin: 23px auto 0;
+
+  cursor: pointer;
+  border: 0;
+
+  background: transparent;
+  color: #805178;
+
+  text-decoration: underline;
+  font: inherit;
+}
+
+.delivery {
+  font-size: 13px;
+  line-height: 1.4;
+
+  color: #a36e8f;
+  min-height: 20px;
+}
+
+/* Плавное появление страниц */
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Адаптация под телефоны */
+@media (max-width: 650px) {
+  body {
+    padding: 14px 10px;
+  }
+
+  .illustration {
+    background-position: 68% center;
+  }
+
+  .paper {
+    min-height: 0;
+    border-width: 6px;
+    border-radius: 37px;
+
+    padding: 25px 20px;
+  }
+
+  .buttons {
+    display: grid;
+  }
+
+  .candy {
+    width: 100%;
+    border-radius: 25px;
+  }
+
+  .paper-top,
+  .paper-bottom {
+    letter-spacing: 9px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

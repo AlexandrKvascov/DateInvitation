@@ -1,0 +1,96 @@
+
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7c2dd">
+  <title>Приглашение</title>
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <div class="illustration" aria-hidden="true"></div>
+
+  <main class="paper" aria-live="polite">
+    <div class="paper-top" aria-hidden="true">✦ · ✧ · ✦</div>
+
+    <!-- Первый экран: приглашение -->
+    <section id="welcome" class="screen">
+      <p class="eyebrow">МАЛЕНЬКОЕ ПРИГЛАШЕНИЕ</p>
+
+      <h1 id="title"></h1>
+      <p id="intro" class="intro"></p>
+
+      <div class="buttons">
+        <button class="candy pink" id="yes" type="button">
+          Да, хочу
+        </button>
+
+        <button class="candy lilac" id="maybe" type="button">
+          Я подумаю
+        </button>
+
+        <button class="candy peach" id="no" type="button">
+          Я устала
+        </button>
+      </div>
+    </section>
+
+    <!-- Второй экран: варианты свидания -->
+    <section id="choices" class="screen hidden">
+      <p class="eyebrow">НЕБОЛЬШОЕ ПРИКЛЮЧЕНИЕ</p>
+
+      <h2 id="choices-title">Что выберем?</h2>
+      <p id="choices-text" class="intro"></p>
+
+      <div id="option-list" class="option-list"></div>
+
+      <button
+        class="candy pink"
+        id="send-choice"
+        type="button"
+        disabled
+      >
+        Выбрать
+      </button>
+
+      <button class="plain" id="back" type="button">
+        Назад
+      </button>
+    </section>
+
+    <!-- Третий экран: результат -->
+    <section id="result" class="screen hidden">
+      <p class="eyebrow">СПАСИБО ЗА ОТВЕТ</p>
+
+      <h2 id="result-title"></h2>
+      <p id="result-text" class="intro"></p>
+
+      <p
+        id="delivery"
+        class="delivery"
+        role="status"
+      ></p>
+
+      <button
+        class="candy lilac"
+        id="manual"
+        type="button"
+      >
+        Отправить ответ сообщением
+      </button>
+
+      <button class="plain" id="restart" type="button">
+        В начало
+      </button>
+    </section>
+
+    <div class="paper-bottom" aria-hidden="true">
+      ✦ · ✧ · ✦
+    </div>
+  </main>
+</body>
+</html>
